@@ -1,0 +1,60 @@
+<div class="app-container">
+  <h1>{{ title }}</h1>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      placeholder="Search..."
+    /><!-- (keyup)="onSearch()"-->
+  </div>
+  <button class="custom-button" (click)="onSearch()">搜尋</button>
+
+  <!-- Search Results -->
+  <div class="search-results" *ngIf="searchResults$ | async as results">
+    <!-- 表格 -->
+    <table>
+      <!-- 表頭 -->
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Cover Edition</th>
+        </tr>
+      </thead>
+
+      <!-- 資料列 -->
+      <tbody>
+        <tr *ngFor="let doc of results.docs">
+          <td>{{ doc.title }}</td>
+          <td>{{ doc.author_name ? doc.author_name[0] : 'N/A' }}</td>
+          <td>{{ doc.cover_edition_key }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 分頁 -->
+    <div class="pagination">
+      <button (click)="onPageChange('previous')" [disabled]="pageIndex <= 0">
+        Previous
+      </button>
+      <span>Page {{ pageIndex + 1 }}</span>
+      <button (click)="onPageChange('next')" [disabled]="pageIndex >= (results?.length / pageSize)">
+        Next
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Page Size Selector -->
+  <div class="page-size">
+    <label for="pageSize">Results per page:</label>
+    <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChange(pageSize)">
+      <option *ngFor="let size of [10, 20, 30]" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+</div>
+
+
+<router-outlet />

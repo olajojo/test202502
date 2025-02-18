@@ -1,0 +1,116 @@
+
+
+.app-container{
+  max-width: 1500px;
+  margin: auto;
+}
+
+
+.search-results table {
+  width: 100%;
+  border-collapse: collapse; /* 合併邊框 */
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #000; /* 表格格線 */
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+  background: #b7a525; /* 表頭背景顏色 */
+  text-align: center;
+}
+
+td{
+  color: #ffffff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+  border-top: 2px solid #ffffff; /* 上方邊框 */
+  background-color: #b7a525;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-weight: bold;
+}
+
+
+ .app-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .search-bar input {
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+  }
+
+  .search-results ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .search-results li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .pagination {
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .page-size {
+    margin-top: 20px;
+  }
+
+//************** 搜尋框 **************************
+.search-bar{
+  display: inline;
+}
+//************** 按鈕 **************************
+.custom-button {
+  padding: 3px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #c5b428;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+.custom-button:hover {
+  background-color: #ae701a; /* 懸停時的背景色 */
+ // transform: translateY(-2px); /* 滑鼠懸停時稍微上升 */
+}
+
+.custom-button:focus {
+  outline: none; /* 去掉按鈕的聚焦邊框 */
+}
+
+.custom-button:active {
+  background-color: #5a5958; /* 點擊時的背景色 */
+  transform: translateY(2px); /* 點擊時向下略微移動 */
+}
