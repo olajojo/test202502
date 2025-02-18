@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { SearchService } from './services/search.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -30,7 +30,7 @@ export class AppComponent {
         this.searchText = params['searchText'];
       }
       if (params['pageSize']){
-
+        this.pageSize =  parseInt(params['pageSize']);
       }
       if (params['pageIndex']){
         this.pageIndex = parseInt(params['pageIndex']);
@@ -47,7 +47,7 @@ export class AppComponent {
     }
   }
 
-  onPageChange(action: string) {debugger
+  onPageChange(action: string) {
     if(action === 'previous'){
       this.pageIndex--;
     }else if(action === 'next'){

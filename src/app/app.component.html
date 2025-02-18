@@ -40,7 +40,7 @@
         Previous
       </button>
       <span>Page {{ pageIndex + 1 }}</span>
-      <button (click)="onPageChange('next')" [disabled]="pageIndex >= (results?.length / pageSize)">
+      <button (click)="onPageChange('next')" [disabled]="results.docs?.length < pageSize"><!--[disabled]="pageIndex >= (results?.length / pageSize)"-->
         Next
       </button>
     </div>
