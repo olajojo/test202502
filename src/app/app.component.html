@@ -18,18 +18,20 @@
       <!-- 表頭 -->
       <thead>
         <tr>
+          <th>Cover Image</th>
           <th>Title</th>
           <th>Author</th>
-          <th>Cover Edition</th>
         </tr>
       </thead>
 
       <!-- 資料列 -->
       <tbody>
         <tr *ngFor="let doc of results.docs">
+          <td>
+            <img [src]="'https://covers.openlibrary.org/a/olid/'+  doc.author_key[0] +'-M.jpg'" alt="{{doc.title}}" width="100"> <!--  {{ doc.author_key[0] }}-->
+          </td>
           <td>{{ doc.title }}</td>
           <td>{{ doc.author_name ? doc.author_name[0] : 'N/A' }}</td>
-          <td>{{ doc.cover_edition_key }}</td>
         </tr>
       </tbody>
     </table>
